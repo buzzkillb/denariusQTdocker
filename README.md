@@ -6,7 +6,7 @@ XSOCK=/tmp/.X11-unix
 XAUTH=/tmp/.docker-xauth
 mkdir -p ${HOME}/.denarius
 xauth nlist ${DISPLAY} | sed -e 's/^..../ffff/' | xauth -f ${XAUTH} nmerge -
-docker run -ti --rm -e "XAUTHORITY=${XAUTH}" -e "DISPLAY=${DISPLAY}" -v ${HOME}/.denarius:/denarius -v ${XAUTH}:${XAUTH} -v ${XSOCK}:${XSOCK} --name="denarius-qt-d" --user="${UID}:${GID}" denariusqt
+docker run -ti --rm -e "XAUTHORITY=${XAUTH}" -e "DISPLAY=${DISPLAY}" -v ${HOME}/.denarius:/denarius -v ${XAUTH}:${XAUTH} -v ${XSOCK}:${XSOCK} --name="denarius-qt-d" --user="${UID}:${GID}" buzzkillb/denariusqt:latest
 ```
 then make it run
 ```
